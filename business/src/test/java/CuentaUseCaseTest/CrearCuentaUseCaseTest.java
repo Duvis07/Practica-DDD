@@ -23,7 +23,7 @@ public class CrearCuentaUseCaseTest {
     }
 
     @Test
-    public void crearPersona() {
+    public void crearCuenta() {
 
         var event = new CuentaCreada(
                 new CuentaId("13"),

@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>business</module>
-        <module>domains</module>
+        <module>domain</module>
     </modules>
 
     <dependencies>
