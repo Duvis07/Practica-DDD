@@ -21,19 +21,19 @@ public class Funcion extends Entity<FuncionId> {
     }
 
     /**
-     * Comportamientos
+     * Comportamientos de la entidad Funcion
      */
 
-    public void actualizarDescripcion(Descripcion descripcion){
+    public void actualizarDescripcion(Descripcion descripcion) {
         this.descripcion = Objects.requireNonNull(descripcion);
     }
 
-    public void actualizarCaracteristica(Caracteristica caracteristica){
+    public void actualizarCaracteristica(Caracteristica caracteristica) {
         this.caracteristica = Objects.requireNonNull(caracteristica);
     }
 
     /**
-     * Getters
+     * Getters de los atributos de la entidad Funcion
      */
     public Caracteristica caracteristica() {
         return caracteristica;

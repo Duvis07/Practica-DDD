@@ -2,7 +2,7 @@ package co.com.sofka.example.cuenta;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.example.cuenta.events.CorreoCambiado;
+import co.com.sofka.example.cuenta.events.EmailCambiado;
 import co.com.sofka.example.cuenta.events.CuentaCreada;
 import co.com.sofka.example.cuenta.events.NombreCambiado;
 import co.com.sofka.example.cuenta.values.CuentaId;
@@ -37,7 +37,7 @@ public class Cuenta extends AggregateEvent<CuentaId> {
      */
 
     public void cambiarCorreo(Email email) {
-        appendChange(new CorreoCambiado(email)).apply();
+        appendChange(new EmailCambiado(email)).apply();
         ;
     }
 

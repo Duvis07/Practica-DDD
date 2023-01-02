@@ -46,6 +46,8 @@ public class PersonChange extends EventChange {
             funcion.actualizarCaracteristica(event.getCaracteristica());
         });
 
+
+        // Numero de funciones no puede ser mayor a  6 funciones a crear
         apply((FuncionAgregada event) -> {
             var numFunciones = persona.funciones().size();
             if ( numFunciones == 6){
