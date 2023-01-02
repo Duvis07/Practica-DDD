@@ -41,7 +41,7 @@ public class Persona extends AggregateEvent<PersonaId> {
      * solamente con el identificado pasado por parametro
      * se implementa de ultimo
      */
-    private Persona(PersonaId entityId) {
+    public Persona(PersonaId entityId) {
         super(entityId);
          /* Aca se suscribe a los eventos, para estar pendiente a cada evento
             y poder cambiar el estado
