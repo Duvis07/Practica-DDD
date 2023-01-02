@@ -8,7 +8,7 @@ public class CuentaId extends Identity {
 
     }
 
-    private CuentaId(String id) {
+    public CuentaId(String id) {
         super(id);
     }
 

@@ -2,23 +2,31 @@ package co.com.sofka.example.cuenta;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.example.cuenta.events.EmailCambiado;
 import co.com.sofka.example.cuenta.events.CuentaCreada;
+import co.com.sofka.example.cuenta.events.EmailCambiado;
 import co.com.sofka.example.cuenta.events.NombreCambiado;
 import co.com.sofka.example.cuenta.values.CuentaId;
 import co.com.sofka.example.cuenta.values.Email;
 import co.com.sofka.example.cuenta.values.Nombre;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Cuenta extends AggregateEvent<CuentaId> {
+
+
+    protected CuentaId cuentaId;
+
     protected Nombre nombre;
     protected Email email;
 
     public Cuenta(CuentaId entityId, Nombre nombre, Email email) {
         super(entityId);
+        this.cuentaId = entityId;
         this.nombre = nombre;
-        appendChange(new CuentaCreada(nombre, email)).apply();
+        this.email = email;
+
+        appendChange(new CuentaCreada(cuentaId,nombre,email)).apply();
     }
 
     private Cuenta(CuentaId entityId) {
@@ -51,5 +59,16 @@ public class Cuenta extends AggregateEvent<CuentaId> {
 
     public Email email() {
         return email;
+    }
+
+    public CuentaId cuentaId() {
+        return cuentaId;
+    }
+
+    public void crearCuenta(CuentaId cuentaId, Nombre nombre, Email email) {
+        Objects.requireNonNull(cuentaId);
+        Objects.requireNonNull(nombre);
+        Objects.requireNonNull(email);
+        appendChange(new CuentaCreada(cuentaId, nombre, email)).apply();
     }
 }
